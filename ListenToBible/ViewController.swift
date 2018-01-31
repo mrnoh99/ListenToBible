@@ -67,6 +67,9 @@ class ViewController: UIViewController   {
             name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
             object: nil)
         
+        togglePlayButton.setImage(UIImage(named:"play.png" ), for: UIControlState.normal)
+        (qplayer,bibleNameSequenceArray, nowPlayingRelativeChapterSubscript, nowplayingAbsoluteChapterSubscript, nowPlayingGospel) =  makePlayingCassette(selectedRow: 0 , selectedBible: gospel)
+        
         
     }
     
@@ -79,6 +82,9 @@ class ViewController: UIViewController   {
         togglePlayPause()
     }
     
+    @IBAction func previousButtonPressed(_ sender: UIButton) {
+        playPrevious()
+    }
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         playNext()
     }
@@ -154,7 +160,12 @@ func togglePlayPause() {
         (qplayer,bibleNameSequenceArray, nowPlayingRelativeChapterSubscript, nowplayingAbsoluteChapterSubscript, nowPlayingGospel) =  makePlayingCassette(selectedRow: nowplayingAbsoluteChapterSubscript + 1 , selectedBible: nowPlayingGospel)
         
     }
-    
+    func playPrevious(){
+        qplayer.pause()
+        togglePlayButton.setImage(UIImage(named:"play.png" ), for: UIControlState.normal)
+        (qplayer,bibleNameSequenceArray, nowPlayingRelativeChapterSubscript, nowplayingAbsoluteChapterSubscript, nowPlayingGospel) =  makePlayingCassette(selectedRow: nowplayingAbsoluteChapterSubscript - 1 , selectedBible: nowPlayingGospel)
+        
+    }
    
     
 }

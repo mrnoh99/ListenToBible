@@ -93,35 +93,13 @@ func makePlayingCassette(selectedRow:Int, selectedBible:Bible.Gospel) -> (AVQueu
     let quePlayer = AVQueuePlayer()
     var array = [String]()
     let startSubscript = 0
-    let absolute = selectedRow % (selectedBible.numberOfChapters  )
+    let absolute = (selectedBible.numberOfChapters + selectedRow) % (selectedBible.numberOfChapters  )
+   
+    print (absolute)
     
-    if absolute == selectedBible.numberOfChapters  {
+
+   if absolute == 0 {
     for i in 0...selectedBible.numberOfChapters - 1 {
-        let urlPath = Bundle.main.path(forResource: selectedBible.fileNamesArray[i], ofType:"mp3")
-        let fileURL = NSURL(fileURLWithPath:urlPath!)
-        let playerItem = AVPlayerItem(url:fileURL as URL)
-        quePlayer.insert(playerItem, after:nil)
-        array.append(selectedBible.gospelNameArray[i])
-    } }
-    
-   else if absolute == -1 {
-    for i in (selectedBible.numberOfChapters - 1)...selectedBible.numberOfChapters - 1 {
-        let urlPath = Bundle.main.path(forResource: selectedBible.fileNamesArray[i], ofType:"mp3")
-        let fileURL = NSURL(fileURLWithPath:urlPath!)
-        let playerItem = AVPlayerItem(url:fileURL as URL)
-        quePlayer.insert(playerItem, after:nil)
-        array.append(selectedBible.gospelNameArray[i])
-    }
-    
-    for i in 0...absolute {
-        let urlPath = Bundle.main.path(forResource: selectedBible.fileNamesArray[i], ofType:"mp3")
-        let fileURL = NSURL(fileURLWithPath:urlPath!)
-        let playerItem = AVPlayerItem(url:fileURL as URL)
-        quePlayer.insert(playerItem, after:nil)
-        array.append(selectedBible.gospelNameArray[i])
-    } }
-   else if absolute == 0 {
-    for i in 0...absolute {
         let urlPath = Bundle.main.path(forResource: selectedBible.fileNamesArray[i], ofType:"mp3")
         let fileURL = NSURL(fileURLWithPath:urlPath!)
         let playerItem = AVPlayerItem(url:fileURL as URL)

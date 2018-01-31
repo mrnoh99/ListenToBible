@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListenToBible/ViewController.swift"
-            timestampString = "539089844.351817"
+            timestampString = "539132065.393108"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "togglePlayPause()"
             landmarkType = "7">
          </BreakpointContent>
